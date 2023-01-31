@@ -9,12 +9,19 @@
 
 <body>
   <main>
-    <h1>Leaderboard</h1>
-    <section>
+    <h1 class="box">
+      <div class="chart-icon">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      Leaderboard
+    </h1>
+    <section class="box">
       <section class="scores-section">
         <div>
           <h2>Recent scores</h2>
-          <button id="refresh-all-scores">Refresh</button>
+          <button id="refresh-all-scores">Refresh <div class="refresh-icon"></div></button>
         </div>
         <ul id="score-list">
         </ul>
@@ -23,8 +30,8 @@
         <h2>Add your score</h2>
         <form>
           <input id="new-score-name" type="text" placeholder="Your name">
-          <input id="new-score-score" type="number" placeholder="Your score">
-          <button id="new-score-submit">Submit</button>
+          <input id="new-score-score" type="number" placeholder="Your score" min="0">
+          <button id="new-score-submit" class="primary">Submit</button>
         </form>
       </aside>
     </section>
