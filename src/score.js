@@ -4,7 +4,7 @@ export default class Score {
     this.score = score;
   }
 
-  draw() {
+  draw = () => {
     const parentUIElement = document.createElement('li');
     const nameUIElement = document.createElement('span');
     const scoreUIElement = document.createElement('span');

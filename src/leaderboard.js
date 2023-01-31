@@ -10,12 +10,12 @@ export default class Leaderboard {
     this.refreshAllScores();
   }
 
-  getAllScores() {
+  getAllScores = () => {
     return fetch(`${this.baseURL}/games/${this.apiID}/scores/`)
       .then(response => response.json());
   }
 
-  setNewScore(name, score) {
+  setNewScore = (name, score) => {
     if (!name || !score) {
       return;
     }
@@ -32,7 +32,7 @@ export default class Leaderboard {
     }).then((response) => response.json());
   }
 
-  populateScoresArray(scoreList) {
+  populateScoresArray = (scoreList) => {
     this.scores = [];
 
     scoreList.forEach(score => {
@@ -41,7 +41,7 @@ export default class Leaderboard {
     });
   }
 
-  drawScoreListUI() {
+  drawScoreListUI = () => {
     this.scoreListUI.innerHTML = '';
 
     this.scores.forEach((score) => {
@@ -50,13 +50,13 @@ export default class Leaderboard {
     });
   }
 
-  async refreshAllScores() {
+  refreshAllScores = async () => {
     const scoreList = await this.getAllScores();
     this.populateScoresArray(scoreList.result);
     this.drawScoreListUI();
   }
 
-  async addNewScoreToList(name, score) {
+  addNewScoreToList = async (name, score) => {
     const response = await this.setNewScore(name, score);
 
     if(!response) {
