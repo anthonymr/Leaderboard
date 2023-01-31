@@ -11,7 +11,7 @@ export default class Leaderboard {
   }
 
   getAllScores = () => fetch(`${this.baseURL}/games/${this.apiID}/scores/`)
-      .then((response) => response.json());
+    .then((response) => response.json());
 
   setNewScore = (name, score) => {
     if (!name || !score) {
