@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard</title>
 </head>
+
 <body>
-    <main>
-        <h1>Leaderboard</h1>
-        <section>
-            <section class="scores-section">
-                <div>
-                    <h2>Recent scores</h2>
-                    <button>Refresh</button>
-                </div>
-                <ul>
-                    <li>Name: 100</li>
-                    <li>Name: 20</li>
-                    <li>Name: 50</li>
-                    <li>Name: 78</li>
-                    <li>Name: 125</li>
-                    <li>Name: 77</li>
-                    <li>Name: 42</li>
-                </ul>
-            </section>
-            <aside class="add-new-score">
-                <h2>Add your score</h2>
-                <form>
-                    <input type="text" placeholder="Your name">
-                    <input type="number" placeholder="Your score">
-                    <button>Submit</button>
-                </form>
-            </aside>
-        </section>
-    </main>
-    
+  <main>
+    <h1>Leaderboard</h1>
+    <section>
+      <section class="scores-section">
+        <div>
+          <h2>Recent scores</h2>
+          <button id="refresh-all-scores">Refresh</button>
+        </div>
+        <ul>
+          <li>Name: 100</li>
+          <li>Name: 20</li>
+          <li>Name: 50</li>
+          <li>Name: 78</li>
+          <li>Name: 125</li>
+          <li>Name: 77</li>
+          <li>Name: 42</li>
+        </ul>
+      </section>
+      <aside class="add-new-score">
+        <h2>Add your score</h2>
+        <form>
+          <input id="new-score-name" type="text" placeholder="Your name">
+          <input id="new-score-score" type="number" placeholder="Your score">
+          <button id="new-score-submit">Submit</button>
+        </form>
+      </aside>
+    </section>
+  </main>
+
 </body>
+
 </html>

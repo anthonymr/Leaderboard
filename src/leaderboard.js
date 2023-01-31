@@ -9,12 +9,36 @@ export default class Leaderboard {
 
   getAllScores() {
     return fetch(`${this.baseURL}/games/${this.apiID}/scores/`)
-    .then(response => response.json())
-    .then(json => json);
+      .then(response => response.json());
+  }
+
+  setNewScore(name, score) {
+    if (!name || !score) {
+      return;
+    }
+
+    return fetch(`${this.baseURL}/games/${this.apiID}/scores/`, {
+      method: 'POST',
+      body: JSON.stringify({
+        user: name,
+        score: score,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }).then((response) => response.json());
   }
 
   async refreshAllScores() {
     const newScores = await this.getAllScores();
     this.scores = newScores;
+  }
+
+  async addNewScoreToList(name, score) {
+    const response = await this.setNewScore(name, score);
+
+    if(response.result === 'Leaderboard score created correctly.'){
+      this.refreshAllScores();
+    }
   }
 }
