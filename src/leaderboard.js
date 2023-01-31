@@ -59,6 +59,10 @@ export default class Leaderboard {
   async addNewScoreToList(name, score) {
     const response = await this.setNewScore(name, score);
 
+    if(!response) {
+      return;
+    }
+
     if (response.result === 'Leaderboard score created correctly.') {
       this.refreshAllScores();
     }

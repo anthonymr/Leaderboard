@@ -14,4 +14,6 @@ refreshAllScoresBtn.addEventListener('click', () => leaderboard.refreshAllScores
 newScoreSubmitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   leaderboard.addNewScoreToList(newScoreName.value, newScoreScore.value);
+  newScoreName.value = '';
+  newScoreScore.value = '';
 });
