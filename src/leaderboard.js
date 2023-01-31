@@ -29,15 +29,24 @@ export default class Leaderboard {
     }).then((response) => response.json());
   }
 
+  populateScoresArray(scoreList) {
+    this.scores = [];
+
+    scoreList.forEach(score => {
+      const newScore = new Score(score.user, score.score);
+      this.scores.push(newScore);
+    });
+  }
+
   async refreshAllScores() {
-    const newScores = await this.getAllScores();
-    this.scores = newScores;
+    const scoreList = await this.getAllScores();
+    this.populateScoresArray(scoreList.result);
   }
 
   async addNewScoreToList(name, score) {
     const response = await this.setNewScore(name, score);
 
-    if(response.result === 'Leaderboard score created correctly.'){
+    if (response.result === 'Leaderboard score created correctly.') {
       this.refreshAllScores();
     }
   }
