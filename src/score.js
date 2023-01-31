@@ -9,7 +9,7 @@ export default class Score {
     const nameUIElement = document.createElement('span');
     const scoreUIElement = document.createElement('span');
 
-    nameUIElement.innerHTML = this.name;
+    nameUIElement.innerHTML = `${this.name}: `;
     scoreUIElement.innerHTML = this.score;
 
     parentUIElement.appendChild(nameUIElement);
