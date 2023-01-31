@@ -1,4 +1,4 @@
-import Score from "./score.js";
+import Score from './score.js';
 
 export default class Leaderboard {
   constructor(scoreListUI) {
@@ -10,21 +10,19 @@ export default class Leaderboard {
     this.refreshAllScores();
   }
 
-  getAllScores = () => {
-    return fetch(`${this.baseURL}/games/${this.apiID}/scores/`)
-      .then(response => response.json());
-  }
+  getAllScores = () => fetch(`${this.baseURL}/games/${this.apiID}/scores/`)
+      .then((response) => response.json());
 
   setNewScore = (name, score) => {
     if (!name || !score) {
-      return;
+      return {};
     }
 
     return fetch(`${this.baseURL}/games/${this.apiID}/scores/`, {
       method: 'POST',
       body: JSON.stringify({
         user: name,
-        score: score,
+        score,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -35,7 +33,7 @@ export default class Leaderboard {
   populateScoresArray = (scoreList) => {
     this.scores = [];
 
-    scoreList.forEach(score => {
+    scoreList.forEach((score) => {
       const newScore = new Score(score.user, score.score);
       this.scores.push(newScore);
     });
@@ -59,7 +57,7 @@ export default class Leaderboard {
   addNewScoreToList = async (name, score) => {
     const response = await this.setNewScore(name, score);
 
-    if(!response) {
+    if (!response) {
       return;
     }
 
